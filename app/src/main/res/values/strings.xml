@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Just Java</string>
+    <integer name="price">5</integer>
 </resources>
