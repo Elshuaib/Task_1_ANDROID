@@ -1,7 +1,11 @@
 package com.example.justjava;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.NumberFormat;
 
@@ -12,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
+    Button button;
     int quantity = 0;
     int price = 5;
 
@@ -19,6 +24,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button=findViewById(R.id.reset_button_id);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View view){
+                resetQuantity(view);
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.parentLayout), "Number of Quantity has been reset",
+                        Snackbar.LENGTH_LONG).setAction("Action",null);
+                snackbar.show();
+            }
+
+        });
+
+
     }
     /**
      * This method is called when the order button is clicked.
